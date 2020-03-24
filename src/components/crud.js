@@ -52,6 +52,7 @@ class Crud extends React.Component{
 		this.setState({
       		input:''
     	});
+    	document.querySelector('.addTask').value = '';
 	}
 
 	deleteTask(index){
@@ -81,22 +82,25 @@ class Crud extends React.Component{
 		const items = [];
 		for(let index in this.state.todo){
 			const input = <input type="checkbox" value={this.state.input} onChange={() => this.toogleTask(this.state.todo[index].id)} />
-			const buttonDelete = <button onClick={()=> this.deleteTask(this.state.todo[index].id)}>Delete</button>
-			const li = <li id='index_${index}'>{input}{this.state.todo[index].task} {buttonDelete}</li>;
+			const buttonDelete = <button onClick={()=> this.deleteTask(this.state.todo[index].id)}>&#x2716;</button>
+			const li = <li className='todoListItem' id='index_${index}'>{input}<p>{this.state.todo[index].task}</p>{buttonDelete}</li>;
 			items.push(li);
 		}
 		return(
 			<div>
+				<h1>CRUD</h1>
+				<p>Add, Read, Update & Delete a Task</p>
+				<div className='formAddTask'>
+					<p>Add New Task</p>
+					<input type='text' className='addTask' onChange={(e) => this.getInputValue(e)	}/>
+					<button onClick={() => this.addTask()}>ADD</button>
+				</div>
 				<div>
-					<ul>
+					<ul className='todoList'>
 						{items}
 	                </ul>
 				</div>
-				<div className='form_addTask'>
-					<p>Form</p>
-					<input type='text' className='addTask' onChange={(e) => this.getInputValue(e)	}/>
-					<button onClick={() => this.addTask()}>Agregar Tarea</button>
-				</div>
+				
 			</div>
 		)
 	}

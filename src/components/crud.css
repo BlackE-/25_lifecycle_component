@@ -1,3 +1,17 @@
-.form_addTask{border:1px solid blue;padding:10px;max-width: 360px;margin:0 auto;}
-.form_addTask p{padding:0;margin:0;}
+.formAddTask{display:grid;grid-template-columns:auto 50px;grid-template-rows:50% 30px;grid-column-gap: 5px;grid-row-gap: 5px;
+	border:1px solid rgba(0,0,150,0.3);padding:10px 10px 20px 10px;border-radius:5px;max-width: 360px;margin:0 auto;}
+.formAddTask p{margin: 0;grid-column-start: 1;grid-column-end: 3;}
+.formAddTask input{grid-column-start: 1;grid-column-end: 1;grid-row-start: 2; grid-row-end: 2;}
+.formAddTask button{grid-column-start: 2;grid-column-end: 2;grid-row-start: 2; grid-row-end: 2;}
 /*https://www.robinwieruch.de/react-state-array-add-update-remove*/
+
+.todoList{list-style: none;max-width: 360px;margin:20px auto;padding:20px;background: #ccc;border-radius: 5px;}
+.todoListItem{display:grid;grid-template-columns:20px auto 33px;grid-template-rows:100%;margin:10px;background: rgba(255,255,255,0.3);color:#000;}
+.todoListItem input{ align-self: center;}
+.todoListItem button{text-align: center;}
+.todoListItem button:hover{background: rgba(255,0,0,0.4);}
+.todoListItem p{position: relative;margin:0;}
+.todoListItem p:after{content:'';position: absolute;width: 0%;height: 1px;background: #000;top: 50%;left:0;transition:all 300ms ease-in;}
+.todoListItem input:checked ~ p:after{width: 100%;}
+
+ 
